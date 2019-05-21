@@ -13,6 +13,7 @@ return {
   { 'g', 'Google Chrome' }, -- "g" for "Gogle"
   { 'h', 'Dash' }, -- "H" for "Dash"
   { 'i', 'IntelliJ IDEA' }, -- "I" for "InwtelliJ IDEA"
+  { 'j', 'Cisco AnyConnect Secure Mobility Client' }, -- "J" for "Join VPN"
   { 'l', 'Slack' }, -- "L" for "Slack"
   { 'm', 'Mail' }, -- "M" for "Mail"
   { 'p', 'MacPass' }, -- "P" for "MacPass"
