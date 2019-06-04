@@ -55,7 +55,7 @@ Install:andUse(
     start = true,
     config = {
       show_in_menubar = false,
-      hist_size = 100
+      hist_size = 1000
     },
     hotkeys = {
       toggle_clipboard = {{"cmd", "shift"}, "v"}
@@ -109,7 +109,7 @@ local dodsBrowser = chrome
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
-local myBrowser = firefox
+local myBrowser = opera
 local defBrowser = firefox
 
 Install:andUse(
@@ -142,10 +142,11 @@ Install:andUse(
         {".*.appriver.com", synBrowser},
         {".*.us.exg7.exghost.com", synBrowser},
         {".*.syniverse.webex.com", synBrowser},
+        {".*127.0.0.1", defBrowser},
         --
-        {"*", defBrowser}
+        {"*", myBrowser}
       },
-      default_handler = defBrowser
+      default_handler = myBrowser
     }
   }
 )
