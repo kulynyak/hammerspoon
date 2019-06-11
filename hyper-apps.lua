@@ -8,7 +8,7 @@ return {
   { 'a', 'Activity Monitor' }, -- "A" for "Activity Monitor"
   { 'b', 'Google Chrome'}, -- "B" for "Browser"
   { 'c', 'Visual Studio Code' }, -- "C for "VSCode"
-  { 'd', 'Firefox' }, -- "D" for "Development" 
+  { 'd', 'Firefox Developer Edition' }, -- "D" for "Development" 
   { 'f', 'Finder' }, -- "F" for "Finder"
   { 'g', 'Google Chrome' }, -- "g" for "Gogle"
   { 'h', 'Dash' }, -- "H" for "Dash"
