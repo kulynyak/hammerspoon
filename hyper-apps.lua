@@ -10,15 +10,15 @@ return {
   { 'c', 'Visual Studio Code' }, -- "C for "VSCode"
   { 'd', 'Firefox Developer Edition' }, -- "D" for "Development" 
   { 'f', 'Finder' }, -- "F" for "Finder"
-  { 'g', 'Google Chrome' }, -- "g" for "Gogle"
-  { 'h', 'Dash' }, -- "H" for "Dash"
+  { 'g', 'Google Chrome' }, -- "g" for "Google"
+  -- { 'h', 'Dash' }, -- "H" for "Dash"
   { 'i', 'IntelliJ IDEA' }, -- "I" for "InwtelliJ IDEA"
   { 'j', 'Cisco AnyConnect Secure Mobility Client' }, -- "J" for "Join VPN"
   { 'l', 'Slack' }, -- "L" for "Slack"
   { 'm', 'Mail' }, -- "M" for "Mail"
   { 'p', 'MacPass' }, -- "P" for "MacPass"
   { 'q', 'QuickTime Player'}, -- "q" for Quick Time
-  { 'r', 'Franz' }, -- "R" for "Franz"
+  -- { 'r', 'Franz' }, -- "R" for "Franz"
   { 'o', 'Opera' }, -- "O" for "Opera"
   { 's', 'Sourcetree'}, -- "S" for "Sourcetree"
   { 'v', 'Viber' }, -- "V" for "Viber"
@@ -28,8 +28,8 @@ return {
   -- { 'n', 'NetScaler Gateway' }, -- "N" for "NetScaler Gateway"
   -- { 'k', 'Google Play Music Desktop Player' }, -- "K" for "Google Play Music Desktop Player"
   -- { 'r', 'Rambox' }, -- "R" for "Rambox"
-  -- { 't', 'Telegram' }, -- "T" for Telegram 
-  -- { 'w', 'WhatsApp' }, -- "W" for "WhatsApp"
-  -- { 'z', 'Vivaldi' }, -- "Z" for "Another Browser"
+  { 't', 'Telegram' }, -- "T" for Telegram 
+  { 'w', 'WhatsApp' }, -- "W" for "WhatsApp"
+  { 'x', 'Vivaldi' }, -- "X" for "Another Browser"
   { 'z', 'zoom.us' }, -- "Z" for "Zoom"
 }

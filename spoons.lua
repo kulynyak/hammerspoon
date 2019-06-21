@@ -110,7 +110,7 @@ local dodsBrowser = chrome
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
-local myBrowser = opera
+local myBrowser = firefox
 local defBrowser = firefox
 
 Install:andUse(
