@@ -71,7 +71,8 @@ Install:andUse(
     config = {
       colors = {
         ["U.S."] = {},
-        ["Ukrainian - PC"] = {col.blue, col.yellow}
+        ["Ukrainian - PC"] = {col.blue, col.yellow},
+        ["Ukrainian"] = {col.blue, col.yellow}
       }
     }
   }
@@ -143,6 +144,7 @@ Install:andUse(
         {".*.appriver.com", synBrowser},
         {".*.us.exg7.exghost.com", synBrowser},
         {".*.syniverse.webex.com", synBrowser},
+        {".*.myworkday.com", synBrowser},
         {".*127.0.0.1", defBrowser},
         --
         {"*", myBrowser}

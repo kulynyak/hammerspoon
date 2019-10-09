@@ -11,11 +11,15 @@ function makeTab(from, to)
   return map
 end
 
-local en = "`qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~@#$^&QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?"
-local uk = "'йцукенгшщзхїґфівапролджєячсмитьбю.ʼ\"№;:?ЙЦУКЕНГШЩЗХЇҐФІВАПРОЛДЖЄЯЧСМИТЬБЮ,"
+local en_en = "`qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~@#$^&QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?"
+local uk_pc = "'йцукенгшщзхїґфівапролджєячсмитьбю.ʼ\"№;:?ЙЦУКЕНГШЩЗХЇҐФІВАПРОЛДЖЄЯЧСМИТЬБЮ,"
 
-local enuk = makeTab(en, uk)
-local uken = makeTab(uk, en)
+local en_eu = "qwertyuiop[]asdfghjkl;'\\`zxcvbnm,./QWERTYUIOP{}ASDFGHJKL:\"|~ZXCVBNM<>?"
+
+local uk = "йцукенгшщзхїфивапролджєґ'ячсмітьбю/ЙЦУКЕНГШЩЗХЇФИВАПРОЛДЖЄҐ~ЯЧСМІТЬБЮ?"
+
+local enuk = makeTab(en_eu, uk)
+local uken = makeTab(uk, en_eu)
 
 function printTable(t)
   for key, value in pairs(t) do
