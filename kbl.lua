@@ -1,4 +1,4 @@
--- local log = hs.logger.new('kbl.lua', 'debug')
+local log = hs.logger.new('kbl.lua', 'debug')
 
 local utf8 = require('lua-utf8')
 
@@ -12,7 +12,7 @@ function makeTab(from, to)
 end
 
 local en_en = "`qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~@#$^&QWERTYUIOP{}|ASDFGHJKL:\"ZXCVBNM<>?"
-local uk_pc = "'йцукенгшщзхїґфівапролджєячсмитьбю.ʼ\"№;:?ЙЦУКЕНГШЩЗХЇҐФІВАПРОЛДЖЄЯЧСМИТЬБЮ,"
+local uk_pc = "'йцукенгшщзхїґфивапролджєячсмітьбю.ʼ\"№;:?ЙЦУКЕНГШЩЗХЇҐФИВАПРОЛДЖЄЯЧСМІТЬБЮ,"
 
 local en_eu = "qwertyuiop[]asdfghjkl;'\\`zxcvbnm,./QWERTYUIOP{}ASDFGHJKL:\"|~ZXCVBNM<>?"
 

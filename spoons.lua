@@ -72,7 +72,8 @@ Install:andUse(
       colors = {
         ["U.S."] = {},
         ["Ukrainian - PC"] = {col.blue, col.yellow},
-        ["Ukrainian"] = {col.blue, col.yellow}
+        ["Ukrainian"] = {col.blue, col.yellow},
+        ["Ukrainian+"] = {col.blue, col.yellow},
       }
     }
   }
@@ -111,8 +112,8 @@ local dodsBrowser = chrome
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
-local myBrowser = firefox
-local defBrowser = firefox
+local myBrowser = safari
+local defBrowser = safari
 
 Install:andUse(
   "URLDispatcher",

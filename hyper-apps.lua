@@ -11,7 +11,7 @@ return {
   { 'd', 'Firefox Developer Edition' }, -- "D" for "Development"
   { 'f', 'Finder' }, -- "F" for "Finder"
   { 'g', 'Google Chrome' }, -- "g" for "Google"
-  -- { 'h', 'Dash' }, -- "H" for "Dash"
+  { 'h', 'Safari' }, -- "H" for "Safari"
   -- { 'i', 'IntelliJ IDEA 2019.3 EAP' }, -- "I" for "InwtelliJ IDEA"
   { 'i', 'IntelliJ IDEA' }, -- "I" for "InwtelliJ IDEA"
   { 'j', 'Cisco AnyConnect Secure Mobility Client' }, -- "J" for "Join VPN"

@@ -1,4 +1,6 @@
--- local log = hs.logger.new('init.lua', 'debug')
+hs.logger.defaultLogLevel = "error"
+
+local log = hs.logger.new('init.lua', 'debug')
 inspect = require('inspect')
 
 hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
