@@ -111,6 +111,18 @@ end)
 -- hs.hotkey.bind( coc, "k", function() if hs.window.focusedWindow() then hs.window.focusedWindow():focusWindowNorth() end end )
 -- -- }}}
 
+-- mute on wake
+function muteOnWake(eventType)
+  if (eventType == hs.caffeinate.watcher.systemDidWake) then
+      local output = hs.audiodevice.defaultOutputDevice()
+      output:setMuted(true)
+  end
+end
+caffeinateWatcher = hs.caffeinate.watcher.new(muteOnWake)
+caffeinateWatcher:start()
+
+hs.keycodes.setLayout("U.S.")
+
 hs.notify.new({
   title = 'Hammerspoon',
   informativeText = 'Ready to rock 🤘',
