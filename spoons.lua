@@ -108,12 +108,11 @@ local firefox = "org.mozilla.firefoxdeveloperedition"
 local vivaldi = "com.vivaldi.Vivaldi"
 local brave = "com.brave.Browser"
 
-local dodsBrowser = chrome
+-- local dodsBrowser = chrome
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
-local myBrowser = safari
-local defBrowser = safari
+local defBrowser = firefox
 
 Install:andUse(
   "URLDispatcher",
@@ -122,35 +121,30 @@ Install:andUse(
     config = {
       url_patterns = {
         -- mine
-        {".*.ukrsibbank.com", myBrowser},
-        {".*.localhost:*", myBrowser},
-        {".*.skype.com", myBrowser},
-        -- dods
-        {".*.dods.co.uk", dodsBrowser},
-        {".*.parlicom.local", dodsBrowser},
-        {".*.cloudforge.com", dodsBrowser},
-        {".*.dodssystem.slack.com", dodsBrowser},
-        {".*.teams.microsoft.com", dodsBrowser},
-        -- nix
-        {".*.docs.google.com", nixBrowser},
-        {".*.calendar.google.com", nixBrowser},
-        {".*.google.com", nixBrowser},
-        {".*.n-ix-nordic.atlassian.net", nixBrowser},
-        {".*.n-ix.facebook.com", nixBrowser},
-        {".*.n-ix.com", nixBrowser},
-        {".*.n-ix.*", nixBrowser},
-        {".*.zoom.us", nixBrowser},
-        -- syniverse
-        {".*.syniverse.com", synBrowser},
-        {".*.appriver.com", synBrowser},
-        {".*.us.exg7.exghost.com", synBrowser},
-        {".*.syniverse.webex.com", synBrowser},
-        {".*.myworkday.com", synBrowser},
-        {".*127.0.0.1", defBrowser},
+        {".*%.localhost:?.*", devBrowser},
+        {".*127%.0%.0%.1.*", devBrowser},
         --
-        {"*", myBrowser}
+        {".*%.skype%.com", defBrowser},
+        -- -- dods
+        -- {".*%.dods%.co%.uk", dodsBrowser},
+        -- {".*%.parlicom%.local", dodsBrowser},
+        -- {".*%.cloudforge%.com", dodsBrowser},
+        -- {".*%.dodssystem%.slack%.com", dodsBrowser},
+        -- {".*%.teams%.microsoft%.com", dodsBrowser},
+        -- nix
+        {".*%.google%.com", nixBrowser},
+        {".*n-ix%..*", nixBrowser},
+        {".*%.zoom%.us", nixBrowser},
+        -- syniverse
+        {".*syniverse.%.*", synBrowser},
+        {".*%.appriver%.com", synBrowser},
+        {".*%.us%.exg7%.exghost%.com", synBrowser},
+        {".*%.myworkday%.com", synBrowser},
+        {".*%.windowsazure%.com", synBrowser},
+        {".*%.fortify%.com", synBrowser},
+        {".*%.ideaboardz%.com", synBrowser},
       },
-      default_handler = myBrowser
+      default_handler = defBrowser
     }
   }
 )
