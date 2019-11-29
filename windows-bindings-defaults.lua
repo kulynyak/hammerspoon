@@ -41,8 +41,5 @@ return {
     { {}, 'o', 'upRight' },
     { {}, ',', 'downLeft' },
     { {}, '.', 'downRight' },
-    { {}, 'n', 'nextScreen' },
-    { {}, 'right', 'moveOneScreenEast' },
-    { {}, 'left', 'moveOneScreenWest' },
   },
 }

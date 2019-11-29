@@ -1,8 +1,5 @@
-local status, hyperModeAppMappings = pcall(require, 'hyper-apps')
+local  hyperModeAppMappings = require('hyper-apps')
 
-if not status then
-  hyperModeAppMappings = require('hyper-apps-defaults')
-end
 -- hs.application.enableSpotlightsForNameSearches(true)
 for i, mapping in ipairs(hyperModeAppMappings) do
   local key = mapping[1]

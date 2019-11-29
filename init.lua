@@ -35,12 +35,8 @@ enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
   end)
 end
 
--- require('control-escape')
 require('delete-words')
 require('hyper')
--- require('markdown')
--- require('panes')
--- require('super')
 require('windows')
 require('slowq')
 require('spoons')
