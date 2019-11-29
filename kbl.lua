@@ -16,10 +16,12 @@ local uk_pc = "'йцукенгшщзхїґфивапролджєячсмітьб
 
 local en_eu = "qwertyuiop[]asdfghjkl;'\\`zxcvbnm,./QWERTYUIOP{}ASDFGHJKL:\"|~ZXCVBNM<>?"
 
-local uk = "йцукенгшщзхїфивапролджєґ'ячсмітьбю/ЙЦУКЕНГШЩЗХЇФИВАПРОЛДЖЄҐ~ЯЧСМІТЬБЮ?"
+local uk = "йцукенгшщзхїфівапролджєґ'ячсмитьбю/ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄҐ~ЯЧСМИТЬБЮ?"
 
 local enuk = makeTab(en_eu, uk)
 local uken = makeTab(uk, en_eu)
+
+local layouts = {["U.S."] = "Ukrainian+", ["Ukrainian+"] = "U.S."}
 
 function printTable(t)
   for key, value in pairs(t) do
@@ -81,6 +83,8 @@ function fix()
     -- we restore the original clipboard
     hs.timer.doAfter(0.2, function()
       hs.pasteboard.setContents(originalClipboardContents)
+      local curLayout = hs.keycodes.currentLayout()
+      hs.keycodes.setLayout(layouts[curLayout])
     end)
   end)
 end
