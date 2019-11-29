@@ -12,11 +12,12 @@ return {
   { 'f', 'Finder' }, -- "F" for "Finder"
   { 'g', 'Google Chrome' }, -- "g" for "Google"
   { 'h', 'Safari' }, -- "H" for "Safari"
-  -- { 'i', 'IntelliJ IDEA 2019.3 EAP' }, -- "I" for "InwtelliJ IDEA"
-  { 'i', 'IntelliJ IDEA' }, -- "I" for "InwtelliJ IDEA"
+  { 'i', 'IntelliJ IDEA 2019.3 EAP' }, -- "I" for "InwtelliJ IDEA"
+  -- { 'i', 'IntelliJ IDEA' }, -- "I" for "InwtelliJ IDEA"
   { 'j', 'Cisco AnyConnect Secure Mobility Client' }, -- "J" for "Join VPN"
   { 'l', 'Slack' }, -- "L" for "Slack"
   { 'm', 'Mail' }, -- "M" for "Mail"
+  { 'n', 'Android Studio' }, -- "N" for "Android"
   { 'p', 'MacPass' }, -- "P" for "MacPass"
   { 'q', 'QuickTime Player'}, -- "q" for Quick Time
   -- { 'r', 'Franz' }, -- "R" for "Franz"
@@ -31,5 +32,7 @@ return {
   { 't', 'Telegram' }, -- "T" for Telegram
   { 'w', 'WhatsApp' }, -- "W" for "WhatsApp"
   { 'x', 'Vivaldi' }, -- "X" for "Another Browser"
-  { 'z', 'zoom.us' }, -- "Z" for "Zoom"
+  -- { 'z', 'zoom.us' }, -- "Z" for "Zoom"
+  { '3', 'Robo 3T' }, -- "3" for "Robo 3T"
+  { '4', 'Postman' }, -- "4" for "Postman"
 }
