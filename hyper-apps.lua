@@ -6,7 +6,7 @@
 
 return {
   { 'a', 'Activity Monitor' }, -- "A" for "Activity Monitor"
-  { 'b', 'Google Chrome'}, -- "B" for "Browser"
+  { 'b', 'Brave Browser'}, -- "B" for "Browser"
   { 'c', 'Visual Studio Code' }, -- "C for "VSCode"
   { 'd', 'Firefox Developer Edition' }, -- "D" for "Development"
   { 'f', 'Finder' }, -- "F" for "Finder"

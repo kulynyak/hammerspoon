@@ -112,7 +112,7 @@ local brave = "com.brave.Browser"
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
-local defBrowser = firefox
+local defBrowser = brave
 
 Install:andUse(
   "URLDispatcher",
