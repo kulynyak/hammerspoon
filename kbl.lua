@@ -89,6 +89,6 @@ function fix()
   end)
 end
 
-hs.hotkey.bind({ 'shift', 'ctrl', 'alt', 'cmd' }, '0', fix)
+hs.hotkey.bind(hyperKey, '0', fix)
 
 

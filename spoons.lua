@@ -121,8 +121,8 @@ Install:andUse(
     config = {
       url_patterns = {
         -- mine
-        {".*%.localhost:?.*", devBrowser},
-        {".*127%.0%.0%.1.*", devBrowser},
+        {"localhost", devBrowser},
+        {"127%.0%.0%.1", devBrowser},
         --
         {".*%.skype%.com", defBrowser},
         -- -- dods
@@ -133,8 +133,7 @@ Install:andUse(
         -- {".*%.teams%.microsoft%.com", dodsBrowser},
         -- nix
         {".*%.google%.com", nixBrowser},
-        {".*n-ix%..*", nixBrowser},
-        {".*%.zoom%.us", nixBrowser},
+        {".*n-ix.*", nixBrowser},
         -- syniverse
         {".*syniverse.%.*", synBrowser},
         {".*%.appriver%.com", synBrowser},

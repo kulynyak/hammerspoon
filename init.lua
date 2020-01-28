@@ -3,9 +3,11 @@ hs.logger.defaultLogLevel = "error"
 local log = hs.logger.new('init.lua', 'debug')
 inspect = require('inspect')
 
+hyperKey = { 'shift', 'ctrl', 'alt', 'cmd' }
+
 hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
 -- Use hyper + ` to reload Hammerspoon config
-hs.hotkey.bind({ 'shift', 'ctrl', 'alt', 'cmd' }, '`', nil, function()
+hs.hotkey.bind(hyperKey, '`', nil, function()
   hs.reload()
 end)
 
@@ -52,8 +54,8 @@ hs.window.setShadows(false)
 -- set up your windowfilter {{{
 local switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
 switcher.ui.fontName = 'Monaco'
-switcher.ui.textSize = 14
-switcher.ui.showTitles = false
+switcher.ui.textSize = 13
+switcher.ui.showTitles = true
 switcher.ui.showThumbnails = false
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showSelectedTitle = false
@@ -62,10 +64,13 @@ switcher.ui.showSelectedTitle = false
 hs.hotkey.bind('alt', 'tab', nil, function()
   switcher:next()
 end)
+
 hs.hotkey.bind('alt-shift', 'tab', nil, function()
   switcher:previous()
 end)
 -- }}}
+
+
 
 local coc = { 'control', 'option', 'command' }
 
