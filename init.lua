@@ -1,11 +1,11 @@
 hs.logger.defaultLogLevel = "error"
 
 local log = hs.logger.new('init.lua', 'debug')
-inspect = require('inspect')
+-- inspect = require('inspect')
 
 hyperKey = { 'shift', 'ctrl', 'alt', 'cmd' }
 
-hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
+-- hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
 -- Use hyper + ` to reload Hammerspoon config
 hs.hotkey.bind(hyperKey, '`', nil, function()
   hs.reload()
@@ -50,27 +50,6 @@ hs.hints.style = 'vimperator'
 
 -- Window shadows off
 hs.window.setShadows(false)
-
--- set up your windowfilter {{{
-local switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
-switcher.ui.fontName = 'Monaco'
-switcher.ui.textSize = 13
-switcher.ui.showTitles = true
-switcher.ui.showThumbnails = false
-switcher.ui.showSelectedThumbnail = false
-switcher.ui.showSelectedTitle = false
-
--- bind to hotkeys; WARNING: at least one modifier key is required!
-hs.hotkey.bind('alt', 'tab', nil, function()
-  switcher:next()
-end)
-
-hs.hotkey.bind('alt-shift', 'tab', nil, function()
-  switcher:previous()
-end)
--- }}}
-
-
 
 local coc = { 'control', 'option', 'command' }
 
@@ -123,6 +102,55 @@ caffeinateWatcher = hs.caffeinate.watcher.new(muteOnWake)
 caffeinateWatcher:start()
 
 hs.keycodes.setLayout("U.S.")
+
+local kbdTable = { en = "U.S.", uk = "Ukrainian+"}
+
+local function setKbd(src)
+  local keyL = kbdTable[src]
+  -- local srcId = "com.apple.keylayout." .. keyL
+  -- hs.keycodes.currentSourceID(srcId)
+  -- log.d("kbd: " .. srcId)
+  hs.keycodes.setLayout(keyL)
+end
+
+local key2App = require('hyper-apps')
+
+hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
+  for key, app in pairs(key2App) do
+    local path = app[2]
+    local im = app[3]
+    -- log.d("current: " .. path .. ",path: " .. window:application():path())
+    if window:application():path() == path then
+      log.d("found: " .. path .. ", im: " .. im)
+      if im then
+        -- hs.timer.doAfter(0.1, function() setKbd(im) end)
+        setKbd(im)
+      end
+      break
+    end
+  end
+end)
+
+-- set up your windowfilter {{{
+  local switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
+  switcher.ui.fontName = 'Monaco'
+  switcher.ui.textSize = 14
+  switcher.ui.showTitles = true
+  switcher.ui.showThumbnails = false
+  switcher.ui.showSelectedThumbnail = false
+  switcher.ui.showSelectedTitle = false
+
+  -- bind to hotkeys; WARNING: at least one modifier key is required!
+  hs.hotkey.bind('alt', 'tab', nil, function()
+    switcher:next()
+  end)
+
+  hs.hotkey.bind('alt-shift', 'tab', nil, function()
+    switcher:previous()
+  end)
+  -- }}}
+
+require('launch')
 
 hs.notify.new({
   title = 'Hammerspoon',

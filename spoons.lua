@@ -17,7 +17,7 @@
 -- )
 
 hs.loadSpoon("SpoonInstall")
-spoon.SpoonInstall.use_syncinstall = true
+spoon.SpoonInstall.use_syncinstall = false
 
 local hyper = {"cmd", "alt", "shift", "ctrl"}
 
@@ -55,7 +55,7 @@ Install:andUse(
     start = true,
     config = {
       show_in_menubar = false,
-      hist_size = 1000
+      hist_size = 200
     },
     hotkeys = {
       toggle_clipboard = {{"cmd", "shift"}, "v"}
@@ -135,6 +135,9 @@ Install:andUse(
         {".*%.google%.com", nixBrowser},
         {".*n-ix.*", nixBrowser},
         -- syniverse
+        {".*webex.%.*", synBrowser},
+        {".*teams.%.*", synBrowser},
+        {".*zoom.%.*", synBrowser},
         {".*syniverse.%.*", synBrowser},
         {".*%.appriver%.com", synBrowser},
         {".*%.us%.exg7%.exghost%.com", synBrowser},
