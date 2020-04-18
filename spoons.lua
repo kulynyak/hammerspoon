@@ -112,6 +112,7 @@ local brave = "com.brave.Browser"
 local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
+local rewBrowser = chrome
 local defBrowser = brave
 
 Install:andUse(
@@ -121,8 +122,9 @@ Install:andUse(
     config = {
       url_patterns = {
         -- mine
-        {"localhost", devBrowser},
-        {"127%.0%.0%.1", devBrowser},
+        {"kulynyak", devBrowser},
+        {"localhost", defBrowser},
+        {"127%.0%.0%.1", defBrowser},
         --
         {".*%.skype%.com", defBrowser},
         -- -- dods
@@ -131,13 +133,17 @@ Install:andUse(
         -- {".*%.cloudforge%.com", dodsBrowser},
         -- {".*%.dodssystem%.slack%.com", dodsBrowser},
         -- {".*%.teams%.microsoft%.com", dodsBrowser},
+        -- rew
+        {".*%.us%.exg7%.exghost%.com", rewBrowser},
+        {".*%.office365%.com", rewBrowser},
+        {".*%.mail%.rewconsultingservices%.com", rewBrowser},
         -- nix
         {".*%.google%.com", nixBrowser},
         {".*n-ix.*", nixBrowser},
         -- syniverse
         {".*webex.%.*", synBrowser},
         {".*teams.%.*", synBrowser},
-        {".*zoom.%.*", synBrowser},
+        {".*zoom%.*", synBrowser},
         {".*syniverse.%.*", synBrowser},
         {".*%.appriver%.com", synBrowser},
         {".*%.us%.exg7%.exghost%.com", synBrowser},

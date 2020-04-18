@@ -19,7 +19,7 @@ return {
   { 'h', '/Applications/Safari.app', 'en' }, -- "H" for "Safari"
   { 'i', '/Applications/IntelliJ IDEA.app', 'en' }, -- "I" for "InwtelliJ IDEA"
   { 'j', '/Applications/Cisco/Cisco AnyConnect Secure Mobility Client.app', 'en' }, -- "J" for "Join VPN"
-  { 'k', '/Applications/IntelliJ IDEA 2020.1 EAP.app', 'en' }, -- "K" for "InwtelliJ IDEA"
+  { 'k', '/Applications/MongoDB Compass.app', 'en' }, -- "K" for "Compass"
   { 'l', '/Applications/Slack.app', nil }, -- "L" for "Slack"
   { nil, '/System/Applications/Mail.app', 'en' }, -- "M" for "Mail"
   { nil, '/Applications/Android Studio.app', 'en' }, -- "N" for "Android"
@@ -29,8 +29,10 @@ return {
   { 's', '/Applications/Sourcetree.app', 'en'}, -- "S" for "Sourcetree"
   { nil, '/Applications/Viber.app', 'uk' }, -- "V" for "Viber"
   { nil, '/Applications/Skype.app', 'uk' }, -- "Y" for "Skype"
-  { 'return', '/System/Applications/Utilities/Terminal.app', 'en' }, -- " " for "Terminal"
+  -- { 'return', '/System/Applications/Utilities/Terminal.app', 'en' }, -- " " for "Terminal"
+  { 'return', '/Applications/Alacritty.app', 'en' }, -- " " for "Terminal"
   { 't', '/Applications/Telegram.app', 'uk', }, -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', 'uk' }, -- "W" for "WhatsApp"
   { 'x', '/Applications/Vivaldi.app', nil }, -- "X" for "Another Browser"
+  { 'z', '/Applications/zoom.us.app', 'en' }, -- "Z" for "Zoom US"
 }
