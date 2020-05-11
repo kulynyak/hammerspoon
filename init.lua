@@ -1,20 +1,14 @@
 hs.logger.defaultLogLevel = "error"
 
-local log = hs.logger.new('init.lua', 'debug')
+log = hs.logger.new('init.lua', 'debug')
 -- inspect = require('inspect')
 
 hyperKey = { 'shift', 'ctrl', 'alt', 'cmd' }
 
--- hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
--- Use hyper + ` to reload Hammerspoon config
-hs.hotkey.bind(hyperKey, '`', nil, function()
-  hs.reload()
-end)
 
 keyUpDown = function(modifiers, key)
   -- Un-comment & reload config to log each keystroke that we're triggering
   -- log.d('Sending keystroke:', hs.inspect(modifiers), key)
-
   hs.eventtap.keyStroke(modifiers, key, 0)
 end
 
@@ -51,7 +45,7 @@ hs.hints.style = 'vimperator'
 -- Window shadows off
 hs.window.setShadows(false)
 
-local coc = { 'control', 'option', 'command' }
+coc = { 'control', 'option', 'command' }
 
 -- Lockscreen - Ctrl+Opt+Cmd+\ {{{
 hs.hotkey.bind(coc, '\\', function()
@@ -65,7 +59,7 @@ hs.hotkey.bind(coc, 'y', nil, function()
 -- hide if not hidden
 -- except for Finder, for that, just close visible windows
 -- the 'Desktop' window will remain open
-  local running = hs.application.runningApplications()
+running = hs.application.runningApplications()
   for i, app in ipairs(running) do
     if app:isHidden() == false then
       if app:name() ~= 'Finder' then
@@ -103,17 +97,17 @@ caffeinateWatcher:start()
 
 hs.keycodes.setLayout("U.S.")
 
-local kbdTable = { en = "U.S.", uk = "Ukrainian+"}
+kbdTable = { en = "U.S.", uk = "Ukrainian+"}
 
-local function setKbd(src)
-  local keyL = kbdTable[src]
+function setKbd(src)
+  keyL = kbdTable[src]
   -- local srcId = "com.apple.keylayout." .. keyL
   -- hs.keycodes.currentSourceID(srcId)
   -- log.d("kbd: " .. srcId)
   hs.keycodes.setLayout(keyL)
 end
 
-local key2App = require('hyper-apps')
+key2App = require('hyper-apps')
 
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
   for key, app in pairs(key2App) do
@@ -121,7 +115,7 @@ hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(wind
     local im = app[3]
     -- log.d("current: " .. path .. ",path: " .. window:application():path())
     if window:application():path() == path then
-      log.d("found: " .. path .. ", im: " .. im)
+      -- log.d("found: " .. path .. ", im: " .. im)
       if im then
         -- hs.timer.doAfter(0.1, function() setKbd(im) end)
         setKbd(im)
@@ -132,25 +126,45 @@ hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(wind
 end)
 
 -- set up your windowfilter {{{
-  local switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
-  switcher.ui.fontName = 'Monaco'
-  switcher.ui.textSize = 14
-  switcher.ui.showTitles = true
-  switcher.ui.showThumbnails = false
-  switcher.ui.showSelectedThumbnail = false
-  switcher.ui.showSelectedTitle = false
+switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
+switcher.ui.fontName = 'Monaco'
+switcher.ui.textSize = 15
+switcher.ui.showTitles = true
+switcher.ui.showThumbnails = false
+switcher.ui.showSelectedThumbnail = false
+switcher.ui.showSelectedTitle = false
 
-  -- bind to hotkeys; WARNING: at least one modifier key is required!
-  hs.hotkey.bind('alt', 'tab', nil, function()
-    switcher:next()
-  end)
+-- bind to hotkeys; WARNING: at least one modifier key is required!
+hs.hotkey.bind('alt', 'tab', nil, function()
+  switcher:next()
+end)
 
-  hs.hotkey.bind('alt-shift', 'tab', nil, function()
-    switcher:previous()
-  end)
-  -- }}}
+hs.hotkey.bind('alt-shift', 'tab', nil, function()
+  switcher:previous()
+end)
+-- }}}
 
 require('launch')
+
+-- hs.hotkey.showHotkeys({ 'cmd', 'alt', 'ctrl' }, 's')
+
+-- Use hyper + ` to reload Hammerspoon config
+hs.hotkey.bind(hyperKey, '`', nil, function() hs.reload() end)
+
+function reloadConfig(files)
+    local doReload = false
+    for _,file in pairs(files) do
+        if file:sub(-4) == ".lua" then
+            doReload = true
+        end
+    end
+    if doReload then
+        hs.reload()
+    end
+end
+
+-- reloader = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig)
+-- reloader:start()
 
 hs.notify.new({
   title = 'Hammerspoon',

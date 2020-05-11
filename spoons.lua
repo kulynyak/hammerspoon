@@ -21,7 +21,11 @@ spoon.SpoonInstall.use_syncinstall = false
 
 local hyper = {"cmd", "alt", "shift", "ctrl"}
 
+local coc = {"cmd", "alt", "ctrl"}
+
 local Install = spoon.SpoonInstall
+
+Install:andUse("Commander")
 
 Install:andUse(
   "Caffeine",
@@ -31,23 +35,16 @@ Install:andUse(
     }
   }
 )
-
 local caffeine = spoon.Caffeine:start()
 caffeine.clicked()
 
 Install:andUse("BingDaily")
 
+-- Install:andUse("UnsplashRandom")
+
 Install:andUse("RoundedCorners", {start = true})
 
--- Install:andUse('HeadphoneAutoPause', {
---   start = true,
---   control = {
---     itunes = true,
---     spotify = true,
---     deezer = true,
---     vox = false, -- handled by VOX
---   },
--- })
+Install:andUse("SpeedMenu", {start = true})
 
 Install:andUse(
   "TextClipboardHistory",
@@ -78,17 +75,6 @@ Install:andUse(
     }
   }
 )
-
--- local wm = hs.webview.windowMasks
--- Install:andUse('PopupTranslateSelection', {
---   config = {
---     popup_style = wm.utility | wm.HUD | wm.titled | wm.closable | wm.resizable,
---   },
---   hotkeys = {
---     translate_uk_en = { hyper, 'e' },
---     translate_en_uk = { hyper, 'u' },
---   },
--- })
 
 local wm = hs.webview.windowMasks
 local translator = require("PopupTranslateSelection")
