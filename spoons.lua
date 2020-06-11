@@ -99,7 +99,7 @@ local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
 local rewBrowser = chrome
-local defBrowser = brave
+local defBrowser = opera
 
 Install:andUse(
   "URLDispatcher",
