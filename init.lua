@@ -1,10 +1,9 @@
 hs.logger.defaultLogLevel = "error"
 
-log = hs.logger.new('init.lua', 'debug')
+local log = hs.logger.new('init.lua', 'debug')
 -- inspect = require('inspect')
 
 hyperKey = { 'shift', 'ctrl', 'alt', 'cmd' }
-
 
 keyUpDown = function(modifiers, key)
   -- Un-comment & reload config to log each keystroke that we're triggering

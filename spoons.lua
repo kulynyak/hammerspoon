@@ -44,8 +44,6 @@ Install:andUse("BingDaily")
 
 Install:andUse("RoundedCorners", {start = true})
 
-Install:andUse("SpeedMenu", {start = true})
-
 Install:andUse(
   "TextClipboardHistory",
   {
@@ -99,7 +97,7 @@ local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
 local rewBrowser = chrome
-local defBrowser = brave
+local defBrowser = opera
 
 Install:andUse(
   "URLDispatcher",

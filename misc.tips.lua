@@ -7,4 +7,4 @@ local function directoryLaunchKeyRemap(mods, key, dir)
     end)
 end
 
-directoryLaunchKeyRemap({"ctrl"}, "1", "/Applications") 
+directoryLaunchKeyRemap({"ctrl"}, "1", "/Applications")
