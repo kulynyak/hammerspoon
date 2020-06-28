@@ -1,8 +1,10 @@
 local log = hs.logger.new('kbl.lua', 'debug')
+local util = require('util')
+local keyUpDown = util.keyUpDown
 
 local utf8 = require('lua-utf8')
 
-function makeTab(from, to)
+local function makeTab(from, to)
   local map = {}
   for i = 1, utf8.len(from), 1 do
     local f, t = utf8.sub(from, i, i), utf8.sub(to, i, i)
@@ -23,13 +25,13 @@ local uken = makeTab(uk, en_eu)
 
 local layouts = {["U.S."] = "Ukrainian+", ["Ukrainian+"] = "U.S."}
 
-function printTable(t)
+local function printTable(t)
   for key, value in pairs(t) do
     print(key, value)
   end
 end
 
-function transform(text)
+local function transform(text)
   -- TODO: try to recognize direction for more precize transformation
   local res1 = ''
   local res2 = ''
@@ -64,7 +66,7 @@ end
 -- print(transform('zrfcm кусщк77в \\eqyz &'))
 local pasteboard = require('hs.pasteboard')
 
-function fix()
+local function fix()
   -- Preserve the current contents of the system clipboard
   local originalClipboardContents = hs.pasteboard.getContents()
   -- Copy the currently-selected text to the system clipboard
@@ -89,6 +91,6 @@ function fix()
   end)
 end
 
-hs.hotkey.bind(hyperKey, '0', fix)
+return fix
 
 

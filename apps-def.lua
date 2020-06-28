@@ -1,13 +1,7 @@
--- Default keybindings for launching apps in Hyper Mode
---
--- To launch _your_ most commonly-used  apps via Hyper Mode, create a copy of
--- this file, save it as `hyper-apps.lua`, and edit the table below to configure
--- your preferred shortcuts.
+-- Keybindings for launching apps in Hyper Mode
 
 return {
   -- { hotkey, app-path, kbd-layout },                                              -- comment
--- { 'x', '/usr/local/opt/emacs-plus/Emacs.app', 'en' },                              -- "X" for "Emacs"
-  { '1', '/Applications/zoom.us.app', 'en' },                                       -- "1" for "Zoom"
   { '2', '/Applications/Postman.app', 'en' },                                       -- "4" for "Postman"
   { '3', '/Applications/Robo 3T.app', 'en' },                                       -- "3" for "Robo 3T"
   { 'a', '/System/Applications/Utilities/Activity Monitor.app', 'en' },             -- "A" for "Activity Monitor"
@@ -30,11 +24,11 @@ return {
   { 'r', '/Applications/Viber.app', 'uk' },                                         -- "V" for "Viber"
   { 's', '/Applications/Sourcetree.app', 'en'},                                     -- "S" for "Sourcetree"
   { nil, '/Applications/Skype.app', 'uk' },                                         -- " " for "Skype"
-  { nil, '/System/Applications/Utilities/Terminal.app', 'en' },                     -- " " for "Terminal"
-  { 'return', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
+  { 'return', '/System/Applications/Utilities/Terminal.app', 'en' },                -- " " for "Terminal"
+  { nil, '/Applications/Alacritty.app', 'en' },                                     -- "↲" for "Alacritty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', 'uk' },                                      -- "W" for "WhatsApp"
-  { 'v', '/Applications/Vivaldi.app', nil },                                        -- "X" for "Another Browser"
-  { 'z', '/Applications/zoom.us.app', 'en' },                                       -- "Z" for "Zoom US"
+  { nil, '/Applications/Vivaldi.app', nil },                                        -- "X" for "Another Browser"
+  { nil, '/Applications/zoom.us.app', 'en' },                                       -- "Z" for "Zoom US"
   { nil, '/Applications/Microsoft Teams.app', 'en' }                               
 }

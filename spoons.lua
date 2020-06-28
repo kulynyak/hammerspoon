@@ -8,81 +8,45 @@
 -- ctrl+Y to paste text from the kill buffer
 -- ctrl+F to move forward by a char
 -- ctrl+B to move backward by a char
-
 -- -- delete word to right forward
 -- hs.hotkey.bind( {"alt"}, "d", function()
 --     hs.eventtap.keyStroke({"ctrl", "alt", "shift"}, "f")
 --     hs.eventtap.keyStroke({}, "delete")
 --   end
 -- )
-
 hs.loadSpoon("SpoonInstall")
 spoon.SpoonInstall.use_syncinstall = false
-
-local hyper = {"cmd", "alt", "shift", "ctrl"}
-
-local coc = {"cmd", "alt", "ctrl"}
 
 local Install = spoon.SpoonInstall
 
 Install:andUse("Commander")
 
-Install:andUse(
-  "Caffeine",
-  {
-    hotkeys = {
-      toggle = {hyper, "="}
-    }
-  }
-)
+Install:andUse("Caffeine")
 local caffeine = spoon.Caffeine:start()
 caffeine.clicked()
 
 Install:andUse("BingDaily")
 
--- Install:andUse("UnsplashRandom")
-
 Install:andUse("RoundedCorners", {start = true})
 
-Install:andUse(
-  "TextClipboardHistory",
-  {
+Install:andUse("TextClipboardHistory", {
     start = true,
-    config = {
-      show_in_menubar = false,
-      hist_size = 200
-    },
-    hotkeys = {
-      toggle_clipboard = {{"cmd", "shift"}, "v"}
-    }
-   }
-)
+    config = {show_in_menubar = false, hist_size = 200},
+    hotkeys = {toggle_clipboard = {{"cmd", "shift"}, "v"}}
+})
 
 local col = hs.drawing.color.x11
-Install:andUse(
-  "MenubarFlag",
-  {
+Install:andUse("MenubarFlag", {
     start = true,
     config = {
-      colors = {
-        ["U.S."] = {},
-        ["Ukrainian - PC"] = {col.blue, col.yellow},
-        ["Ukrainian"] = {col.blue, col.yellow},
-        ["Ukrainian+"] = {col.blue, col.yellow},
-      }
+        colors = {
+            ["U.S."] = {},
+            ["Ukrainian - PC"] = {col.blue, col.yellow},
+            ["Ukrainian"] = {col.blue, col.yellow},
+            ["Ukrainian+"] = {col.blue, col.yellow}
+        }
     }
-  }
-)
-
-local wm = hs.webview.windowMasks
-local translator = require("PopupTranslateSelection")
-translator.popup_style = wm.utility | wm.HUD | wm.titled | wm.closable | wm.resizable
-translator:bindHotkeys(
-  {
-    translate_uk_en = {hyper, "e"},
-    translate_en_uk = {hyper, "u"}
-  }
-)
+})
 
 local chrome = "com.google.Chrome"
 local opera = "com.operasoftware.Opera"
@@ -99,46 +63,36 @@ local synBrowser = chrome
 local rewBrowser = chrome
 local defBrowser = opera
 
-Install:andUse(
-  "URLDispatcher",
-  {
+Install:andUse("URLDispatcher", {
     start = true,
     config = {
-      url_patterns = {
-        -- mine
-        {"kulynyak", devBrowser},
-        {"localhost", defBrowser},
-        {"127%.0%.0%.1", defBrowser},
-        --
-        {".*%.skype%.com", defBrowser},
-        -- -- dods
-        -- {".*%.dods%.co%.uk", dodsBrowser},
-        -- {".*%.parlicom%.local", dodsBrowser},
-        -- {".*%.cloudforge%.com", dodsBrowser},
-        -- {".*%.dodssystem%.slack%.com", dodsBrowser},
-        -- {".*%.teams%.microsoft%.com", dodsBrowser},
-        -- rew
-        {".*%.us%.exg7%.exghost%.com", rewBrowser},
-        {".*%.office365%.com", rewBrowser},
-        {".*%.mail%.rewconsultingservices%.com", rewBrowser},
-        -- nix
-        {".*%.google%.com", nixBrowser},
-        {".*n-ix.*", nixBrowser},
-        -- syniverse
-        {".*webex.%.*", synBrowser},
-        {".*teams.%.*", synBrowser},
-        {".*zoom%.*", synBrowser},
-        {".*syniverse.%.*", synBrowser},
-        {".*%.appriver%.com", synBrowser},
-        {".*%.us%.exg7%.exghost%.com", synBrowser},
-        {".*%.myworkday%.com", synBrowser},
-        {".*%.windowsazure%.com", synBrowser},
-        {".*%.fortify%.com", synBrowser},
-        {".*%.ideaboardz%.com", synBrowser},
-      },
-      default_handler = defBrowser
+        url_patterns = {
+            -- mine
+            {"kulynyak", devBrowser}, {"localhost", defBrowser},
+            {"127%.0%.0%.1", defBrowser}, --
+            {".*%.skype%.com", defBrowser}, -- -- dods
+            -- {".*%.dods%.co%.uk", dodsBrowser},
+            -- {".*%.parlicom%.local", dodsBrowser},
+            -- {".*%.cloudforge%.com", dodsBrowser},
+            -- {".*%.dodssystem%.slack%.com", dodsBrowser},
+            -- {".*%.teams%.microsoft%.com", dodsBrowser},
+            -- rew
+            {".*%.us%.exg7%.exghost%.com", rewBrowser},
+            {".*%.office365%.com", rewBrowser},
+            {".*%.mail%.rewconsultingservices%.com", rewBrowser}, -- nix
+            {".*%.google%.com", nixBrowser}, {".*n-ix.*", nixBrowser},
+            -- syniverse
+            {".*webex.%.*", synBrowser}, {".*teams.%.*", synBrowser},
+            {".*zoom%.*", synBrowser}, {".*syniverse.%.*", synBrowser},
+            {".*%.appriver%.com", synBrowser},
+            {".*%.us%.exg7%.exghost%.com", synBrowser},
+            {".*%.myworkday%.com", synBrowser},
+            {".*%.windowsazure%.com", synBrowser},
+            {".*%.fortify%.com", synBrowser},
+            {".*%.ideaboardz%.com", synBrowser}
+        },
+        default_handler = defBrowser
     }
-  }
-)
+})
 
 spoon.SpoonInstall:asyncUpdateAllRepos()

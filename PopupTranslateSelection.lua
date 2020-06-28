@@ -6,6 +6,9 @@
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PopupTranslateSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PopupTranslateSelection.spoon.zip)
 
+local util = require('util')
+local keyUpDown = util.keyUpDown
+
 local obj={}
 obj.__index = obj
 
