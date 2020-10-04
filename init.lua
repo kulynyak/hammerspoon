@@ -9,7 +9,8 @@ require('launch')
 
 local hyperex = require('hyperex')
 -- main hyper key space {{{
-local hxa = hyperex.new('f19'):setEmptyHitKey('space')
+local hxa = hyperex.new('f18'):sticky('once')
+-- :setEmptyHitKey('escape')
 -- setup apps
 require('apps')(hxa)
 -- setup kbl
@@ -30,11 +31,11 @@ hxa:bind('9'):to('9', hyper)
 hxa:bind('/'):to('space', {'cmd'})
 -- }}}
 
--- auxilary hyper key r-ALT {{{
-local hxb = hyperex.new('f18'):sticky('once'):setEmptyHitKey('escape')
-hxb:mod({'ctrl', 'alt', 'cmd'}):to('atoz')
-hxb:mod({'ctrl', 'alt', 'cmd'}):to('\\')
--- }}}
+-- -- auxilary hyper key r-ALT {{{
+-- local hxb = hyperex.new('f18'):sticky('once'):setEmptyHitKey('escape')
+-- hxb:mod({'ctrl', 'alt', 'cmd'}):to('atoz')
+-- hxb:mod({'ctrl', 'alt', 'cmd'}):to('\\')
+-- -- }}}
 
 local coc = {'control', 'option', 'command'}
 -- Lockscreen - Ctrl+Opt+Cmd+\ {{{

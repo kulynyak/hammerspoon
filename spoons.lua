@@ -35,24 +35,24 @@ Install:andUse("TextClipboardHistory", {
     hotkeys = {toggle_clipboard = {{"cmd", "shift"}, "v"}}
 })
 
-local col = hs.drawing.color.x11
-Install:andUse("MenubarFlag", {
-    start = true,
-    config = {
-        colors = {
-            ["U.S."] = {},
-            ["Ukrainian - PC"] = {col.blue, col.yellow},
-            ["Ukrainian"] = {col.blue, col.yellow},
-            ["Ukrainian+"] = {col.blue, col.yellow}
-        }
-    }
-})
+-- local col = hs.drawing.color.x11
+-- Install:andUse("MenubarFlag", {
+--     start = true,
+--     config = {
+--         colors = {
+--             ["U.S."] = {},
+--             ["Ukrainian - PC"] = {col.blue, col.yellow},
+--             ["Ukrainian"] = {col.blue, col.yellow},
+--             ["Ukrainian+"] = {col.blue, col.yellow}
+--         }
+--     }
+-- })
 
 local chrome = "com.google.Chrome"
 local opera = "com.operasoftware.Opera"
 local safari = "com.apple.Safari"
--- local firefox = "org.mozilla.firefox"
-local firefox = "org.mozilla.firefoxdeveloperedition"
+local firefox = "org.mozilla.firefox"
+-- local firefox = "org.mozilla.firefoxdeveloperedition"
 local vivaldi = "com.vivaldi.Vivaldi"
 local brave = "com.brave.Browser"
 
@@ -61,7 +61,7 @@ local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
 local rewBrowser = chrome
-local defBrowser = opera
+local defBrowser = brave
 
 Install:andUse("URLDispatcher", {
     start = true,
