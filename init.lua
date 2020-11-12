@@ -112,18 +112,18 @@ hs.window.filter.default:subscribe(hs.window.filter.windowFocused,
 end)
 -- }}}
 
--- set up your windowfilter {{{
-switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
-switcher.ui.fontName = 'Monaco'
-switcher.ui.textSize = 15
-switcher.ui.showTitles = true
-switcher.ui.showThumbnails = false
-switcher.ui.showSelectedThumbnail = false
-switcher.ui.showSelectedTitle = true
--- bind to hotkeys; WARNING: at least one modifier key is required!
-hs.hotkey.bind('alt', 'tab', nil, function() switcher:next() end)
-hs.hotkey.bind('alt-shift', 'tab', nil, function() switcher:previous() end)
--- }}}
+-- -- set up your windowfilter {{{
+-- switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
+-- switcher.ui.fontName = 'Monaco'
+-- switcher.ui.textSize = 15
+-- switcher.ui.showTitles = true
+-- switcher.ui.showThumbnails = false
+-- switcher.ui.showSelectedThumbnail = false
+-- switcher.ui.showSelectedTitle = true
+-- -- bind to hotkeys; WARNING: at least one modifier key is required!
+-- hs.hotkey.bind('alt', 'tab', nil, function() switcher:next() end)
+-- hs.hotkey.bind('alt-shift', 'tab', nil, function() switcher:previous() end)
+-- -- }}}
 
 -- Use hyper + ` to reload Hammerspoon config {{{
 hxa:bind('`'):to(hs.reload)

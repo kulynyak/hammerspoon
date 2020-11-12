@@ -7,7 +7,7 @@ return {
   { '4', '/Applications/ShowyEdge.app', 'en' },                                    -- "4" for "ShowyEdge"
   { 'a', '/System/Applications/Utilities/Activity Monitor.app', 'en' },             -- "A" for "Activity Monitor"
   { 'b', '/Applications/Brave Browser.app', nil},                                   -- "B" for "Browser"
-  { 'c', '/Applications/Visual Studio Code.app', 'en' },                            -- "C for "VSCode"
+  { 'c', '/Applications/VSCodium.app', 'en' },                                      -- "C for "VSCodium"
   { 'd', '/Applications/Firefox.app', nil },                                        -- "D" for "Development"
   { 'e', '/Applications/Firefox Developer Edition.app', nil },                      -- "E" for "Editionh"
   { 'f', '/System/Library/CoreServices/Finder.app', 'en' },                         -- "F" for "Finder"
@@ -27,7 +27,7 @@ return {
   { nil, '/Applications/Skype.app', 'uk' },                                         -- " " for "Skype"
   { nil, '/System/Applications/Utilities/Terminal.app', 'en' },                     -- " " for "Terminal"
   { 'nil', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
-  { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
+  { 'return', '/Applications/kitty.app', 'en' },                                       -- "↲" for "Kitty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', 'uk' },                                      -- "W" for "WhatsApp"
   { nil, '/Applications/Vivaldi.app', nil },                                        -- "X" for "Another Browser"
