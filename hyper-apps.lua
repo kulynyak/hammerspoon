@@ -16,8 +16,9 @@ return {
   { nil, '/Applications/Firefox.app', nil },                                        -- "D" for "Development"
   { 'd', '/Applications/Firefox Developer Edition.app', nil },                      -- "D" for "Development"
   { 'f', '/System/Library/CoreServices/Finder.app', 'en' },                         -- "F" for "Finder"
-  { 'g', '/Applications/Google Chrome.app', nil },                                  -- "G" for "Google"
+  { 'g', '/Applications/Google Chrome.app', nil },                                  -- "G" for "Google" HEAD
   { nil, '/Applications/Safari.app', nil },                                         -- "H" for "Safari"
+  { 'h', '/Applications/Safari.app', nil },                                         -- "H" for "Safari"
   { 'i', '/Applications/IntelliJ IDEA.app', 'en' },                                 -- "I" for "InwtelliJ IDEA"
   { 'j', '/Applications/Cisco/Cisco AnyConnect Secure Mobility Client.app', 'en' }, -- "J" for "Join VPN"
   { nil, '/Applications/MongoDB Compass.app', 'en' },                               -- "K" for "Compass"
