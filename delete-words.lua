@@ -1,8 +1,27 @@
 local log = hs.logger.new('delete-words.lua', 'debug')
+local util = require('util')
+local keyUpDown = util.keyUpDown
+
+-- Subscribe to the necessary events on the given window filter such that the
+-- given hotkey is enabled for windows that match the window filter and disabled
+-- for windows that don't match the window filter.
+--
+-- windowFilter - An hs.window.filter object describing the windows for which
+--                the hotkey should be enabled.
+-- hotkey       - The hs.hotkey object to enable/disable.
+--
+-- Returns nothing.
+local enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
+  windowFilter:subscribe(hs.window.filter.windowFocused,
+                         function() hotkey:enable() end)
+
+  windowFilter:subscribe(hs.window.filter.windowUnfocused,
+                         function() hotkey:disable() end)
+end
 
 local isInTerminal = function()
   app = hs.application.frontmostApplication():name()
-  return app == 'iTerm2' or app == 'Terminal'
+  return app == 'iTerm2' or app == 'Terminal' or 'Alacritty'
 end
 
 -- Use option + h to delete previous word

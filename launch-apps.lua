@@ -5,6 +5,7 @@
 
 return {
   -- { app-path, bundleID, hide, mode}, -- comment
+  -- { 'ShowyEdge.app', 'org.pqrs.ShowyEdge', true, 'All'},
   { 'Notes', 'com.apple.Notes', true, 'All' },
   { 'MacPass', 'com.hicknhacksoftware.MacPass', true, 'All' },
   -- { 'Slack', 'com.tinyspeck.slackmacgap', true, 'Syniverse' },

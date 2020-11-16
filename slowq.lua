@@ -4,7 +4,7 @@
 -- luasocket, which has to be installed with Lua 5.3 and luarocks to work with
 -- Hammerspoon.
 
-local socket = require'socket'
+local socket = require('socket')
 local pressedQTime = 0
 
 local function pressedQ()
@@ -35,5 +35,6 @@ local function repeatQ()
     end
   end
 end
+
 
 hs.hotkey.bind('cmd', 'Q', pressedQ, releasedQ, repeatQ)
