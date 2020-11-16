@@ -1,4 +1,5 @@
 local hyperModeAppMappings = require('apps-def')
+local log = hs.logger.new('apps.lua', 'debug')
 
 local function apps(hx)
     -- hs.application.enableSpotlightsForNameSearches(true)
@@ -6,14 +7,14 @@ local function apps(hx)
         local key = mapping[1]
         local app = mapping[2]
         if key then
-            hx:bind(key):to(function()
+            hs.hotkey.bind(hx, key, nil, function()
                 if (type(app) == 'string') then
                     hs.application.launchOrFocus(app)
                     -- hs.application.open(app)
                 elseif (type(app) == 'function') then
                     app()
                 else
-                    hs.logger.new('hyper'):e('Invalid mapping for Hyper +', key)
+                    log.e('Invalid mapping for Hyper +', key)
                 end
             end)
         end

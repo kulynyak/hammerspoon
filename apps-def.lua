@@ -1,10 +1,11 @@
 -- Keybindings for launching apps in Hyper Mode
 
 return {
-  -- { hotkey, app-path, kbd-layout },                                              -- comment
-  { '2', '/Applications/Postman.app', 'en' },                                       -- "4" for "Postman"
+  -- { hotkey, app-path, kbd-layout },    
+  { '1', '/Applications/zoom.us.app', 'en' },                                       -- "1" for "Zoom US"                                          -- comment
+  { '2', '/Applications/Postman.app', 'en' },                                       -- "2" for "Postman"
   { '3', '/Applications/Robo 3T.app', 'en' },                                       -- "3" for "Robo 3T"
-  -- { '4', '/Applications/ShowyEdge.app', 'en' },                                    -- "4" for "ShowyEdge"
+  { '4', '/Applications/Microsoft Teams.app', 'en' },                               -- "4" for "Microsoft Teams"
   { 'a', '/System/Applications/Utilities/Activity Monitor.app', 'en' },             -- "A" for "Activity Monitor"
   { 'b', '/Applications/Brave Browser.app', nil},                                   -- "B" for "Browser"
   { 'c', '/Applications/VSCodium.app', 'en' },                                      -- "C for "VSCodium"
@@ -30,7 +31,5 @@ return {
   { nil, '/Applications/kitty.app', 'en' },                                       -- "↲" for "Kitty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', 'uk' },                                      -- "W" for "WhatsApp"
-  { 'v', '/Applications/Vivaldi.app', nil },                                        -- "X" for "Another Browser"
-  { 'z', '/Applications/zoom.us.app', 'en' },                                       -- "Z" for "Zoom US"
-  { '4', '/Applications/Microsoft Teams.app', 'en' }                               
+  { 'v', '/Applications/Vivaldi.app', nil }                                        -- "X" for "Another Browser"
 }

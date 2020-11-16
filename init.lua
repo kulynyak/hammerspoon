@@ -1,45 +1,37 @@
 hs.logger.defaultLogLevel = "error"
 local log = hs.logger.new('init.lua', 'debug')
 
+local hyper = {"cmd", "alt", "shift", "ctrl"}
+
 require('delete-words')
 require('windows')
 require('slowq')
 require('spoons')
 require('launch')
 
-local hyperex = require('hyperex')
--- main hyper key space {{{
-local hxa = hyperex.new('f18'):sticky('once')
--- :setEmptyHitKey('escape')
--- setup apps
-require('apps')(hxa)
--- setup kbl
+-- setup apps {{{
+require('apps')(hyper)
+-- }}}
+
+-- setup keyboard layout fix {{{
 local kbl = require('kbl')
-hxa:bind('0'):to(kbl)
--- setup translation
-local wm = hs.webview.windowMasks
+hs.hotkey.bind(hyper, '0', nil, kbl)
+-- }}}
+
+-- setup translation {{{
+wm = hs.webview.windowMasks
 local translator = require("PopupTranslateSelection")
-translator.popup_style = wm.utility | wm.HUD | wm.titled | wm.closable |
-                             wm.resizable
-local hyper = {"cmd", "alt", "shift", "ctrl"}
+translator.popup_style = wm.utility | wm.HUD | wm.titled | wm.closable | wm.resizable
 translator:bindHotkeys({
     translate_uk_en = {hyper, "8"},
     translate_en_uk = {hyper, "9"}
 })
-hxa:bind('8'):to('8', hyper)
-hxa:bind('9'):to('9', hyper) 
-hxa:bind('/'):to('space', {'cmd'})
 -- }}}
 
--- -- auxilary hyper key r-ALT {{{
--- local hxb = hyperex.new('f18'):sticky('once'):setEmptyHitKey('escape')
--- hxb:mod({'ctrl', 'alt', 'cmd'}):to('atoz')
--- hxb:mod({'ctrl', 'alt', 'cmd'}):to('\\')
--- -- }}}
 
 local coc = {'control', 'option', 'command'}
--- Lockscreen - Ctrl+Opt+Cmd+\ {{{
-hs.hotkey.bind(coc, '\\', function() hs.caffeinate.lockScreen() end)
+-- Lock Screen - Ctrl+Opt+Cmd+\ {{{
+hs.hotkey.bind(coc, '\\', nil, hs.caffeinate.lockScreen)
 -- }}}
 
 -- Hide all windows - Ctrl-Opt-Cmd-Y {{{
@@ -83,7 +75,7 @@ caffeinateWatcher = hs.caffeinate.watcher.new(muteOnWake)
 caffeinateWatcher:start()
 -- }}}
 
--- fix layout {{{
+-- force to switch desktop keyboard layout after start {{{
 hs.keycodes.setLayout("U.S.")
 kbdTable = {en = "U.S.", uk = "Ukrainian+"}
 function setKbd(src)
@@ -92,40 +84,28 @@ function setKbd(src)
 end
 -- }}}
 
--- set keyboard for apps on enter {{{
+-- force to set desired keyboard layout for apps on open/focus {{{
 local key2App = require('apps-def')
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused,
-                                   function(window, appName)
-    for key, app in pairs(key2App) do
-        local path = app[2]
-        local im = app[3]
-        -- log.d("current: " .. path .. ",path: " .. window:application():path())
-        if window:application():path() == path then
-            -- log.d("found: " .. path .. ", im: " .. im)
-            if im then
-                -- hs.timer.doAfter(0.1, function() setKbd(im) end)
-                setKbd(im)
+    function(window, appName)
+        for key, app in pairs(key2App) do
+            local path = app[2]
+            local im = app[3]
+            -- log.d("current: " .. path .. ",path: " .. window:application():path())
+            if window:application():path() == path then
+                -- log.d("found: " .. path .. ", im: " .. im)
+                if im then
+                    -- hs.timer.doAfter(0.1, function() setKbd(im) end)
+                    setKbd(im)
+                end
+                break
             end
-            break
         end
     end
-end)
+)
 -- }}}
 
--- -- set up your windowfilter {{{
--- switcher = hs.window.switcher.new() -- default windowfilter: only visible windows, all Spaces
--- switcher.ui.fontName = 'Monaco'
--- switcher.ui.textSize = 15
--- switcher.ui.showTitles = true
--- switcher.ui.showThumbnails = false
--- switcher.ui.showSelectedThumbnail = false
--- switcher.ui.showSelectedTitle = true
--- -- bind to hotkeys; WARNING: at least one modifier key is required!
--- hs.hotkey.bind('alt', 'tab', nil, function() switcher:next() end)
--- hs.hotkey.bind('alt-shift', 'tab', nil, function() switcher:previous() end)
--- -- }}}
-
 -- Use hyper + ` to reload Hammerspoon config {{{
-hxa:bind('`'):to(hs.reload)
+hs.hotkey.bind(hyper, '`', nil, hs.reload)
 hs.notify.new({title = 'Hammerspoon', informativeText = 'Ready to rock 🤘'}):send()
 -- }}}
