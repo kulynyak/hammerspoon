@@ -2,7 +2,13 @@ local log = hs.logger.new('kbl.lua', 'debug')
 local util = require('util')
 local keyUpDown = util.keyUpDown
 
-local utf8 = require('lua-utf8')
+local utf8 = require('hs.utf8')
+
+function utf8.sub(s,i,j)
+    i=utf8.offset(s,i)
+    j=utf8.offset(s,j+1)-1
+    return string.sub(s,i,j)
+end
 
 local function makeTab(from, to)
   local map = {}
