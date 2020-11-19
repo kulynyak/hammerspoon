@@ -21,6 +21,8 @@ local Install = spoon.SpoonInstall
 
 Install:andUse("Commander")
 
+Install:andUse("HoldToQuit", {start = true})
+
 Install:andUse("Caffeine")
 local caffeine = spoon.Caffeine:start()
 caffeine.clicked()

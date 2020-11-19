@@ -5,7 +5,6 @@ local hyper = {"cmd", "alt", "shift", "ctrl"}
 
 require('delete-words')
 require('windows')
-require('slowq')
 require('spoons')
 require('launch')
 
