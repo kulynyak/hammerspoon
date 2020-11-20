@@ -27,9 +27,9 @@ return {
   { 's', '/Applications/Sourcetree.app', 'en'},                                     -- "S" for "Sourcetree"
   { nil, '/Applications/Skype.app', 'uk' },                                         -- " " for "Skype"
   { nil, '/System/Applications/Utilities/Terminal.app', 'en' },                     -- " " for "Terminal"
-  { 'return', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
-  { nil, '/Applications/kitty.app', 'en' },                                       -- "↲" for "Kitty"
+  { nil, '/Applications/Alacritty.app', 'en' },                                     -- "↲" for "Alacritty"
+  { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', 'uk' },                                      -- "W" for "WhatsApp"
-  { 'v', '/Applications/Vivaldi.app', nil }                                        -- "X" for "Another Browser"
+  { 'v', '/Applications/Vivaldi.app', nil }                                         -- "V" for "Another Browser"
 }

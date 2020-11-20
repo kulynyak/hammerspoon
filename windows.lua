@@ -1,11 +1,12 @@
 hs.window.animationDuration = 0
+window = hs.getObjectMetatable("hs.window")
 
 -- +-----------------+
 -- |        |        |
 -- |  HERE  |        |
 -- |        |        |
 -- +-----------------+
-function hs.window.left(win)
+function window.left(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -22,7 +23,7 @@ end
 -- |        |  HERE  |
 -- |        |        |
 -- +-----------------+
-function hs.window.right(win)
+function window.right(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -39,7 +40,7 @@ end
 -- +-----------------+
 -- |                 |
 -- +-----------------+
-function hs.window.up(win)
+function window.up(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -56,7 +57,7 @@ end
 -- +-----------------+
 -- |      HERE       |
 -- +-----------------+
-function hs.window.down(win)
+function window.down(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -73,15 +74,15 @@ end
 -- +--------+        |
 -- |                 |
 -- +-----------------+
-function hs.window.upLeft(win)
+function window.upLeft(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:fullFrame()
 
   f.x = max.x
   f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h / 2
+  f.w = max.w/2
+  f.h = max.h/2
   win:setFrame(f)
 end
 
@@ -90,15 +91,15 @@ end
 -- +--------+        |
 -- |  HERE  |        |
 -- +-----------------+
-function hs.window.downLeft(win)
+function window.downLeft(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:fullFrame()
 
   f.x = max.x
   f.y = max.y + (max.h / 2)
-  f.w = max.w / 2
-  f.h = max.h / 2
+  f.w = max.w/2
+  f.h = max.h/2
   win:setFrame(f)
 end
 
@@ -107,15 +108,15 @@ end
 -- |        +--------|
 -- |        |  HERE  |
 -- +-----------------+
-function hs.window.downRight(win)
+function window.downRight(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:fullFrame()
 
   f.x = max.x + (max.w / 2)
   f.y = max.y + (max.h / 2)
-  f.w = max.w / 2
-  f.h = max.h / 2
+  f.w = max.w/2
+  f.h = max.h/2
 
   win:setFrame(f)
 end
@@ -125,24 +126,24 @@ end
 -- |        +--------|
 -- |                 |
 -- +-----------------+
-function hs.window.upRight(win)
+function window.upRight(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:fullFrame()
 
   f.x = max.x + (max.w / 2)
   f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h / 2
+  f.w = max.w/2
+  f.h = max.h/2
   win:setFrame(f)
 end
 
 -- +--------------+
--- |  |        |  |
--- |  |  HERE  |  |
--- |  |        |  |
+-- | |          | |
+-- | |   HERE   | |
+-- | |          | |
 -- +---------------+
-function hs.window.centerWithFullHeight(win)
+function window.centerWithFullHeightLarge(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:fullFrame()
@@ -154,12 +155,29 @@ function hs.window.centerWithFullHeight(win)
   win:setFrame(f)
 end
 
+-- +--------------+
+-- |  |        |  |
+-- |  |  HERE  |  |
+-- |  |        |  |
+-- +---------------+
+function window.centerWithFullHeight(win)
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:fullFrame()
+
+  f.x = max.x + (max.w / 5)
+  f.w = max.w * 3/5
+  f.y = max.y
+  f.h = max.h
+  win:setFrame(f)
+end
+
 -- +-----------------+
 -- |      |          |
 -- | HERE |          |
 -- |      |          |
 -- +-----------------+
-function hs.window.left40(win)
+function window.left40(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -176,19 +194,19 @@ end
 -- |      |   HERE   |
 -- |      |          |
 -- +-----------------+
-function hs.window.right60(win)
+function window.right60(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.x = max.w * 0.4
+  f.x = max.x + (max.w * 0.4)
   f.y = max.y
   f.w = max.w * 0.6
   f.h = max.h
   win:setFrame(f)
 end
 
-function hs.window.nextScreen(win)
+function window.nextScreen(win)
   local currentScreen = win:screen()
   local allScreens = hs.screen.allScreens()
   currentScreenIndex = hs.fnutils.indexOf(allScreens, currentScreen)
@@ -218,24 +236,19 @@ function windowLayoutMode.bindWithAutomaticExit(mode, modifiers, key, fn)
   end)
 end
 
-local status, windowMappings = pcall(require, 'windows-bindings')
+local status, windowMappings = pcall(require, 'keyboard.windows-bindings')
 
 if not status then
   windowMappings = require('windows-bindings-defaults')
 end
 
 local modifiers = windowMappings.modifiers
-local showHelp = windowMappings.showHelp
-local trigger = windowMappings.trigger
-local mappings = windowMappings.mappings
+local showHelp  = windowMappings.showHelp
+local trigger   = windowMappings.trigger
+local mappings  = windowMappings.mappings
 
 function getModifiersStr(modifiers)
-  local modMap = {
-    shift = '⇧',
-    ctrl = '⌃',
-    alt = '⌥',
-    cmd = '⌘',
-  }
+  local modMap = { shift = '⇧', ctrl = '⌃', alt = '⌥', cmd = '⌘' }
   local retVal = ''
 
   for i, v in ipairs(modifiers) do
@@ -246,10 +259,7 @@ function getModifiersStr(modifiers)
 end
 
 local msgStr = getModifiersStr(modifiers)
-msgStr =
-  'Window Layout Mode (' .. msgStr .. (string.len(
-    msgStr
-  ) > 0 and '+' or '') .. trigger .. ')'
+msgStr = 'Window Layout Mode (' .. msgStr .. (string.len(msgStr) > 0 and '+' or '') .. trigger .. ')'
 
 for i, mapping in ipairs(mappings) do
   local modifiers, trigger, winFunction = table.unpack(mapping)
@@ -257,15 +267,9 @@ for i, mapping in ipairs(mappings) do
 
   if showHelp == true then
     if string.len(hotKeyStr) > 0 then
-      msgStr =
-        msgStr .. string.format(
-          '\n%10s+%s => %s',
-          hotKeyStr,
-          trigger,
-          winFunction
-        )
+      msgStr = msgStr .. (string.format('\n%10s+%s => %s', hotKeyStr, trigger, winFunction))
     else
-      msgStr = msgStr .. string.format('\n%11s => %s', trigger, winFunction)
+      msgStr = msgStr .. (string.format('\n%11s => %s', trigger, winFunction))
     end
   end
 
