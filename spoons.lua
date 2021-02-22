@@ -15,7 +15,7 @@
 --   end
 -- )
 hs.loadSpoon("SpoonInstall")
-spoon.SpoonInstall.use_syncinstall = false
+spoon.SpoonInstall.use_syncinstall = true
 
 local Install = spoon.SpoonInstall
 
@@ -33,7 +33,7 @@ Install:andUse("RoundedCorners", {start = true})
 
 Install:andUse("TextClipboardHistory", {
     start = true,
-    config = {show_in_menubar = false, hist_size = 200},
+    config = {show_in_menubar = false, hist_size = 40},
     hotkeys = {toggle_clipboard = {{"cmd", "shift"}, "v"}}
 })
 
@@ -63,38 +63,70 @@ local nixBrowser = chrome
 local devBrowser = chrome
 local synBrowser = chrome
 local rewBrowser = chrome
-local defBrowser = brave
+local defBrowser = safari
 
 Install:andUse("URLDispatcher", {
     start = true,
+    -- Enable debug logging if you get unexpected behavior
+    loglevel = 'debug',
     config = {
         url_patterns = {
+             -- messingers
+            { "msteams:", "com.microsoft.teams" },
+            { "zoommtg:", "us.zoom.xos" },
+            { "tg:", "ru.keepcoder.Telegram" },
             -- mine
-            {"kulynyak", devBrowser}, {"localhost", defBrowser},
-            {"127%.0%.0%.1", defBrowser}, --
-            {".*%.skype%.com", defBrowser}, -- -- dods
-            -- {".*%.dods%.co%.uk", dodsBrowser},
-            -- {".*%.parlicom%.local", dodsBrowser},
-            -- {".*%.cloudforge%.com", dodsBrowser},
-            -- {".*%.dodssystem%.slack%.com", dodsBrowser},
-            -- {".*%.teams%.microsoft%.com", dodsBrowser},
+            {"kulynyak", defBrowser},
+            {"localhost", defBrowser},
+            {"127%.0%.0%.1", defBrowser},
+            --
+            {"https?://.*skype%.com", defBrowser},
+            --
             -- rew
-            {".*%.us%.exg7%.exghost%.com", rewBrowser},
-            {".*%.office365%.com", rewBrowser},
-            {".*%.mail%.rewconsultingservices%.com", rewBrowser}, -- nix
-            {".*%.google%.com", nixBrowser}, {".*n-ix.*", nixBrowser},
+            {"https?://.*us%.exg7%.exghost%.com", rewBrowser},
+            {"https?://.*office365%.com", rewBrowser},
+            {"https?://.*mail%.rewconsultingservices%.com", rewBrowser}, -- nix
+            {"https?://.*google%.com", nixBrowser},
+            {"https?://.*n-ix.*", nixBrowser},
+            {"https?://.*%.clockify%.me", nixBrowser},
             -- syniverse
-            {".*webex.%.*", synBrowser}, {".*teams.%.*", synBrowser},
-            {".*zoom%.*", synBrowser}, {".*syniverse.%.*", synBrowser},
-            {".*%.appriver%.com", synBrowser},
-            {".*%.us%.exg7%.exghost%.com", synBrowser},
-            {".*%.myworkday%.com", synBrowser},
-            {".*%.windowsazure%.com", synBrowser},
-            {".*%.fortify%.com", synBrowser},
-            {".*%.ideaboardz%.com", synBrowser}
+            {"https?://.*syniverse.%com.*", synBrowser},
+            {"https?://.*appriver%.com.*", synBrowser},
+            {"https?://.*us%.exg7%.exghost%.com", synBrowser},
+            {"https?://.*myworkday%.com", synBrowser},
+            {"https?://.*windowsazure%.com", synBrowser},
+            {"https?://.*fortify%.com", synBrowser},
+            {"https?://.*ideaboardz%.com", synBrowser},
         },
-        default_handler = defBrowser
+        url_redir_decoders = {
+            {
+                "MS Teams URLs",
+                "(https?://teams%.microsoft%.com.*)",
+                "msteams:%1",
+                true
+            },
+            {
+                "Zoom URLs",
+                "https?://.*zoom%.us/j/(%d+)%?pwd=(%w)",
+                "zoommtg://zoom.us/join?confno=%1&pwd=%2",
+                true
+            },
+            {
+                "Telegram URLs",
+                "https?://t.me/(.*)",
+                "tg://t.me/%1",
+                true
+            },
+            {
+                "Fix broken Preview anchor URLs",
+                "%%23",
+                "#",
+                false,
+                "Preview"
+            },
+        },
+        default_handler = defBrowser,
     }
-})
+});
 
 spoon.SpoonInstall:asyncUpdateAllRepos()

@@ -25,7 +25,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  modifiers = {'ctrl'},
+  modifiers = {'alt'},
   showHelp  = false,
   trigger   = 's',
   mappings  = {

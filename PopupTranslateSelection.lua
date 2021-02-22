@@ -39,7 +39,7 @@ obj.popup_close_on_escape = true
 --- PopupTranslateSelection.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('PopupTranslateSelection')
+obj.logger = hs.logger.new('PopupTranslateSelection', 'error')
 
 ----------------------------------------------------------------------
 

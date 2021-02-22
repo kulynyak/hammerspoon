@@ -16,6 +16,6 @@ return {
   { 'Calendar', 'com.apple.iCal', true, 'All' },
   { 'Mail', 'com.apple.mail', true, 'All' },
   -- { 'Unibox', 'com.eightloops.Unibox', true, 'All' },
-  -- { 'Skype', 'com.skype.skype', true, 'All'},
+  { 'Skype', 'com.skype.skype', true, 'All'},
   -- { 'Microsoft Teams', 'com.microsoft.teams', true, 'Syniverse' },
 }

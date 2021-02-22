@@ -1,5 +1,5 @@
 local hyperModeAppMappings = require('apps-def')
-local log = hs.logger.new('apps.lua', 'debug')
+local log = hs.logger.new('apps.lua', 'error')
 
 local function apps(hx)
     -- hs.application.enableSpotlightsForNameSearches(true)

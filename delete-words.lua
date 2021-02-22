@@ -1,4 +1,10 @@
-local log = hs.logger.new('delete-words.lua', 'debug')
+-- <a-h> delete previous word
+-- <a-l> delete next word
+-- <c-k> delete to line start
+-- <c-;> delete to line end
+
+
+-- local log = hs.logger.new('delete-words.lua', 'debug')
 local util = require('util')
 local keyUpDown = util.keyUpDown
 
@@ -21,7 +27,7 @@ end
 
 local isInTerminal = function()
   app = hs.application.frontmostApplication():name()
-  return app == 'iTerm2' or app == 'Terminal' or 'Alacritty'
+  return app == 'iTerm2' or app == 'Terminal' or app == 'Alacritty' or app == 'kitty'
 end
 
 -- Use option + h to delete previous word
@@ -52,6 +58,8 @@ end)
 local wf = hs.window.filter.new():setFilters({
   iTerm2 = false,
   Terminal = false,
+  Alacritty = false,
+  kitty = false
 })
 enableHotkeyForWindowsMatchingFilter(
   wf,

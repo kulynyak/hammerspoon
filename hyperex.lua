@@ -4,7 +4,7 @@
 
 local HYPEREX_VERSION = '0.3'
 
-local log = hs.logger.new('hyperex', 'debug')
+local log = hs.logger.new('hyperex', 'error')
 
 local KEY_DOWN = 1
 local KEY_REPEAT = 2

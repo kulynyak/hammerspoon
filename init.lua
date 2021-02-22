@@ -1,5 +1,5 @@
 hs.logger.defaultLogLevel = "error"
-local log = hs.logger.new('init.lua', 'debug')
+local log = hs.logger.new('init.lua', 'error')
 
 local hyper = {"cmd", "alt", "shift", "ctrl"}
 
@@ -7,6 +7,7 @@ require('delete-words')
 require('windows')
 require('spoons')
 require('launch')
+require('notify')
 
 -- setup apps {{{
 require('apps')(hyper)
