@@ -54,16 +54,33 @@ local chrome = "com.google.Chrome"
 local opera = "com.operasoftware.Opera"
 local safari = "com.apple.Safari"
 local firefox = "org.mozilla.firefox"
--- local firefox = "org.mozilla.firefoxdeveloperedition"
+local firefoxDev = "org.mozilla.firefoxdeveloperedition"
 local vivaldi = "com.vivaldi.Vivaldi"
 local brave = "com.brave.Browser"
 
--- local dodsBrowser = chrome
-local nixBrowser = chrome
-local devBrowser = chrome
-local synBrowser = chrome
-local rewBrowser = chrome
 local defBrowser = safari
+
+local nixBrowser = nil
+local devBrowser = nil
+local synBrowser = nil
+local rewBrowser = nil
+
+local nixBrowserX = chrome
+local devBrowserX = chrome
+local synBrowserX = chrome
+local rewBrowserX = chrome
+
+local fireIf = function(browser)
+    return function(url)
+        local target = defBrowser
+        if hs.application.find(browser) then
+            target = browser
+        end
+        hs.application.launchOrFocusByBundleID(target)
+        hs.urlevent.openURLWithBundle(url, target);
+    end
+end
+
 
 Install:andUse("URLDispatcher", {
     start = true,
@@ -76,27 +93,28 @@ Install:andUse("URLDispatcher", {
             { "zoommtg:", "us.zoom.xos" },
             { "tg:", "ru.keepcoder.Telegram" },
             -- mine
-            {"kulynyak", defBrowser},
-            {"localhost", defBrowser},
-            {"127%.0%.0%.1", defBrowser},
+            {".*kulynyak.*", devBrowser, fireIf(devBrowserX)},
+            {".*localhost.*", devBrowser, fireIf(devBrowserX)},
+            {".*127%.0%.0%.1.*", devBrowser, fireIf(devBrowserX)},
             --
-            {"https?://.*skype%.com", defBrowser},
+            {"https?://.*skype%.com.*", defBrowser},
             --
             -- rew
-            {"https?://.*us%.exg7%.exghost%.com", rewBrowser},
-            {"https?://.*office365%.com", rewBrowser},
-            {"https?://.*mail%.rewconsultingservices%.com", rewBrowser}, -- nix
-            {"https?://.*google%.com", nixBrowser},
-            {"https?://.*n-ix.*", nixBrowser},
-            {"https?://.*%.clockify%.me", nixBrowser},
+            {"https?://.*us%.exg7%.exghost%.com.*", rewBrowser, fireIf(rewBrowserX)},
+            {"https?://.*office365%.com.*", rewBrowser, fireIf(rewBrowserX)},
+            {"https?://.*mail%.rewconsultingservices%.com.*", rewBrowser, fireIf(rewBrowserX)},
+            -- nix
+            {"https?://.*google%.com", nixBrowser, fireIf(nixBrowserX)},
+            {"https?://.*n-ix%..*", nixBrowser, fireIf(nixBrowserX)},
+            {"https?://.*clockify%.me.*", nixBrowser, fireIf(nixBrowserX)},
             -- syniverse
-            {"https?://.*syniverse.%com.*", synBrowser},
-            {"https?://.*appriver%.com.*", synBrowser},
-            {"https?://.*us%.exg7%.exghost%.com", synBrowser},
-            {"https?://.*myworkday%.com", synBrowser},
-            {"https?://.*windowsazure%.com", synBrowser},
-            {"https?://.*fortify%.com", synBrowser},
-            {"https?://.*ideaboardz%.com", synBrowser},
+            {"https?://.*syniverse%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*appriver%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*us%.exg7%.exghost%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*myworkday%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*windowsazure%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*fortify%.com.*", synBrowser, fireIf(synBrowserX)},
+            {"https?://.*ideaboardz%.com.*", synBrowser, fireIf(synBrowserX)},
         },
         url_redir_decoders = {
             {
