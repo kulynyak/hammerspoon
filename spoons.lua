@@ -37,18 +37,18 @@ Install:andUse("TextClipboardHistory", {
     hotkeys = {toggle_clipboard = {{"cmd", "shift"}, "v"}}
 })
 
--- local col = hs.drawing.color.x11
--- Install:andUse("MenubarFlag", {
---     start = true,
---     config = {
---         colors = {
---             ["U.S."] = {},
---             ["Ukrainian - PC"] = {col.blue, col.yellow},
---             ["Ukrainian"] = {col.blue, col.yellow},
---             ["Ukrainian+"] = {col.blue, col.yellow}
---         }
---     }
--- })
+local col = hs.drawing.color.x11
+Install:andUse("MenubarFlag", {
+    start = true,
+    config = {
+        colors = {
+            ["U.S."] = {},
+            ["Ukrainian - PC"] = {col.blue, col.yellow},
+            ["Ukrainian"] = {col.blue, col.yellow},
+            ["Ukrainian+"] = {col.blue, col.yellow}
+        }
+    }
+})
 
 local chrome = "com.google.Chrome"
 local opera = "com.operasoftware.Opera"
