@@ -4,7 +4,6 @@
 -- <c-;> delete to line end
 
 
--- local log = hs.logger.new('delete-words.lua', 'debug')
 local util = require('util')
 local keyUpDown = util.keyUpDown
 

@@ -1,7 +1,8 @@
 hs.logger.defaultLogLevel = "error"
-local log = hs.logger.new('init.lua', 'error')
+local log = hs.logger.new('init.lua')
 
-local hyper = {"cmd", "alt", "shift", "ctrl"}
+local hyper = {"command", "option", "shift", "control"}
+local coc = {'control', 'option', 'command'}
 
 require('delete-words')
 require('windows')
@@ -21,15 +22,14 @@ hs.hotkey.bind(hyper, '0', nil, kbl)
 -- setup translation {{{
 wm = hs.webview.windowMasks
 local translator = require("PopupTranslateSelection")
-translator.popup_style = wm.utility | wm.HUD | wm.titled | wm.closable | wm.resizable
+translator.popup_style = wm.utility | wm.HUD | wm.titled | wm.closable |
+                             wm.resizable
 translator:bindHotkeys({
     translate_uk_en = {hyper, "8"},
     translate_en_uk = {hyper, "9"}
 })
 -- }}}
 
-
-local coc = {'control', 'option', 'command'}
 -- Lock Screen - Ctrl+Opt+Cmd+\ {{{
 hs.hotkey.bind(coc, '\\', nil, hs.caffeinate.lockScreen)
 -- }}}
@@ -87,25 +87,39 @@ end
 -- force to set desired keyboard layout for apps on open/focus {{{
 local key2App = require('apps-def')
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused,
-    function(window, appName)
-        for key, app in pairs(key2App) do
-            local path = app[2]
-            local im = app[3]
-            -- log.d("current: " .. path .. ",path: " .. window:application():path())
-            if window:application():path() == path then
-                -- log.d("found: " .. path .. ", im: " .. im)
-                if im then
-                    -- hs.timer.doAfter(0.1, function() setKbd(im) end)
-                    setKbd(im)
-                end
-                break
+                                   function(window, appName)
+    for key, app in pairs(key2App) do
+        local path = app[2]
+        local im = app[3]
+        log.d("current: " .. path .. ",path: " .. window:application():path())
+        if window:application():path() == path then
+            log.d("found: " .. path .. ", im: " .. im)
+            if im then
+                -- hs.timer.doAfter(0.1, function() setKbd(im) end)
+                setKbd(im)
             end
+            break
         end
     end
-)
+end)
 -- }}}
 
 -- Use hyper + ` to reload Hammerspoon config {{{
 hs.hotkey.bind(hyper, '`', nil, hs.reload)
 hs.notify.new({title = 'Hammerspoon', informativeText = 'Ready to rock 🤘'}):send()
+-- }}}
+
+-- Use {{{
+local kc = require('keychain')
+hs.hotkey.bind(coc, 'u', nil,
+               hs.fnutils.partial(kc.pasteValue, kc,
+                                  "work-vpn-credentials", "username"))
+hs.hotkey.bind(coc, 'p', nil,
+               hs.fnutils.partial(kc.pasteValue, kc,
+                                  "work-vpn-credentials", "password"))
+--- }}}
+
+-- {{{
+-- Test
+-- require('test')
 -- }}}

@@ -33,7 +33,7 @@ Install:andUse("RoundedCorners", {start = true})
 
 Install:andUse("TextClipboardHistory", {
     start = true,
-    config = {show_in_menubar = false, hist_size = 40},
+    config = {show_in_menubar = true, hist_size = 100, paste_on_select = false},
     hotkeys = {toggle_clipboard = {{"cmd", "shift"}, "v"}}
 })
 
@@ -85,7 +85,7 @@ end
 Install:andUse("URLDispatcher", {
     start = true,
     -- Enable debug logging if you get unexpected behavior
-    loglevel = 'debug',
+    loglevel = 'error',
     config = {
         url_patterns = {
              -- messingers
@@ -98,6 +98,7 @@ Install:andUse("URLDispatcher", {
             {".*127%.0%.0%.1.*", devBrowser, fireIf(devBrowserX)},
             --
             {"https?://.*skype%.com.*", defBrowser},
+            {"https?://.*maps%.google%.com.*", defBrowser},
             --
             -- rew
             {"https?://.*us%.exg7%.exghost%.com.*", rewBrowser, fireIf(rewBrowserX)},

@@ -1,4 +1,3 @@
-local log = hs.logger.new('kbl.lua', 'error')
 local util = require('util')
 local keyUpDown = util.keyUpDown
 

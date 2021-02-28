@@ -4,7 +4,8 @@
 -- Home
 
 return {
-  -- { app-path, bundleID, hide, mode}, -- comment
+  -- { app-path, bundleID, hide, mode}, 
+  -- comment
   -- { 'ShowyEdge.app', 'org.pqrs.ShowyEdge', true, 'All'},
   { 'Notes', 'com.apple.Notes', true, 'All' },
   { 'MacPass', 'com.hicknhacksoftware.MacPass', true, 'All' },
@@ -12,10 +13,9 @@ return {
   { 'Viber', 'com.viber.osx', true, 'All' },
   { 'WhatsApp', 'WhatsApp', true, 'All' },
   { 'Telegram', 'ru.keepcoder.Telegram', true, 'All' },
-  -- { 'com.flexibits.fantastical2.mac', 'com.flexibits.fantastical2.mac', true, 'All' },
   { 'Calendar', 'com.apple.iCal', true, 'All' },
   { 'Mail', 'com.apple.mail', true, 'All' },
-  -- { 'Unibox', 'com.eightloops.Unibox', true, 'All' },
   { 'Skype', 'com.skype.skype', true, 'All'},
   -- { 'Microsoft Teams', 'com.microsoft.teams', true, 'Syniverse' },
+  { 'Signal', 'org.whispersystems.signal-desktop', true, 'All' },
 }

@@ -25,6 +25,7 @@ return {
   { 'r', '/Applications/Viber.app', 'uk' },                                         -- "V" for "Viber"
   { 's', '/Applications/Sourcetree.app', 'en'},                                     -- "S" for "Sourcetree"
   { nil, '/Applications/Skype.app', 'uk' },                                         -- " " for "Skype"
+  { nil, '/Applications/Signal.app', 'uk' },                                        -- " " for "Signal"
   { nil, '/System/Applications/Utilities/Terminal.app', 'en' },                     -- " " for "Terminal"
   -- { 'return', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
   { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
