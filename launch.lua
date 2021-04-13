@@ -37,4 +37,5 @@ local function hideOnWake(eventType)
 end
 
 CaffeinateWatcher = hs.caffeinate.watcher.new(hideOnWake)
+
 CaffeinateWatcher:start()

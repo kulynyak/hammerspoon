@@ -58,7 +58,7 @@ local firefoxDev = "org.mozilla.firefoxdeveloperedition"
 local vivaldi = "com.vivaldi.Vivaldi"
 local brave = "com.brave.Browser"
 
-local defBrowser = safari
+local defBrowser = firefox
 
 local nixBrowser = nil
 local devBrowser = nil
@@ -106,7 +106,7 @@ Install:andUse("URLDispatcher", {
             {"https?://.*mail%.rewconsultingservices%.com.*", rewBrowser, fireIf(rewBrowserX)},
             -- nix
             {"https?://.*google%.com", nixBrowser, fireIf(nixBrowserX)},
-            {"https?://.*n-ix%..*", nixBrowser, fireIf(nixBrowserX)},
+            {"https?://.*n-ix.*", nixBrowser, fireIf(nixBrowserX)},
             {"https?://.*clockify%.me.*", nixBrowser, fireIf(nixBrowserX)},
             -- syniverse
             {"https?://.*syniverse%.com.*", synBrowser, fireIf(synBrowserX)},

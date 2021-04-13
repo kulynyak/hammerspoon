@@ -1,8 +1,10 @@
-hs.logger.defaultLogLevel = "error"
+hs.logger.defaultLogLevel = "debug"
 local log = hs.logger.new('init.lua')
 
 local hyper = {"command", "option", "shift", "control"}
 local coc = {'control', 'option', 'command'}
+
+
 
 require('delete-words')
 require('windows')
@@ -93,8 +95,8 @@ hs.window.filter.default:subscribe(hs.window.filter.windowFocused,
         local im = app[3]
         log.d("current: " .. path .. ",path: " .. window:application():path())
         if window:application():path() == path then
-            log.d("found: " .. path .. ", im: " .. im)
             if im then
+                log.d("found: " .. path .. ", im: " .. im)
                 -- hs.timer.doAfter(0.1, function() setKbd(im) end)
                 setKbd(im)
             end
@@ -104,10 +106,6 @@ hs.window.filter.default:subscribe(hs.window.filter.windowFocused,
 end)
 -- }}}
 
--- Use hyper + ` to reload Hammerspoon config {{{
-hs.hotkey.bind(hyper, '`', nil, hs.reload)
-hs.notify.new({title = 'Hammerspoon', informativeText = 'Ready to rock 🤘'}):send()
--- }}}
 
 -- Use {{{
 local kc = require('keychain')
@@ -123,3 +121,8 @@ hs.hotkey.bind(coc, 'p', nil,
 -- Test
 -- require('test')
 -- }}}
+
+-- Use hyper + ` to reload Hammerspoon config {{{
+    hs.hotkey.bind(hyper, '`', nil, hs.reload)
+    hs.notify.new({title = 'Hammerspoon', informativeText = 'Ready to rock'}):send()
+-- }}}   

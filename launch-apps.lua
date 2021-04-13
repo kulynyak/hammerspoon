@@ -8,7 +8,8 @@ return {
   -- comment
   -- { 'ShowyEdge.app', 'org.pqrs.ShowyEdge', true, 'All'},
   { 'Notes', 'com.apple.Notes', true, 'All' },
-  { 'MacPass', 'com.hicknhacksoftware.MacPass', true, 'All' },
+  -- { 'MacPass', 'com.hicknhacksoftware.MacPass', true, 'All' },
+  { 'KeePassXC', 'org.keepassxc.keepassxc', true, 'All' },
   -- { 'Slack', 'com.tinyspeck.slackmacgap', true, 'Syniverse' },
   { 'Viber', 'com.viber.osx', true, 'All' },
   { 'WhatsApp', 'WhatsApp', true, 'All' },
