@@ -27,8 +27,8 @@ return {
   { nil, '/Applications/Skype.app', 'uk' },                                         -- " " for "Skype"
   { nil, '/Applications/Signal.app', 'uk' },                                        -- " " for "Signal"
   { nil, '/System/Applications/Utilities/Terminal.app', 'en' },                     -- " " for "Terminal"
-  { 'return', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
-  -- { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
+  -- { 'return', '/Applications/Alacritty.app', 'en' },                                -- "↲" for "Alacritty"
+  { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', nil },                                      -- "W" for "WhatsApp"
   { 'v', '/Applications/Vivaldi.app', nil },                                        -- "V" for "Another Browser"
