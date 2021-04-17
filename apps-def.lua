@@ -9,7 +9,7 @@ return {
   { 'a', '/System/Applications/Utilities/Activity Monitor.app', 'en' },             -- "A" for "Activity Monitor"
   { 'b', '/Applications/Brave Browser.app', nil},                                   -- "B" for "Browser"
   { 'c', '/Applications/Visual Studio Code.app', 'en' },                           -- "C for "VSCode"
-  { 'z', '/Applications/Firefox.app', nil },                                        -- "Z" for "Simplicity"
+  { nil, '/Applications/Firefox.app', nil },                                        -- " " for "Simplicity"
   { 'd', '/Applications/Firefox Developer Edition.app', nil },                      -- "D" for "Development"
   { 'f', '/System/Library/CoreServices/Finder.app', 'en' },                         -- "F" for "Finder"
   { 'g', '/Applications/Google Chrome.app', nil },                                  -- "G" for "Google"
@@ -31,6 +31,6 @@ return {
   { 'return', '/Applications/kitty.app', 'en' },                                    -- "↲" for "Kitty"
   { 't', '/Applications/Telegram.app', nil, },                                      -- "T" for Telegram
   { 'w', '/Applications/WhatsApp.app', nil },                                      -- "W" for "WhatsApp"
-  { 'v', '/Applications/Vivaldi.app', nil },                                        -- "V" for "Another Browser"
+  { 'z', '/Applications/Vivaldi.app', nil },                                        -- "Z" for "Another Browser"
   { 'e', '/Applications/Safari.app', nil },                                         -- "E" for "Explorer"
 }

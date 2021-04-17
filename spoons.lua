@@ -58,7 +58,7 @@ local firefoxDev = "org.mozilla.firefoxdeveloperedition"
 local vivaldi = "com.vivaldi.Vivaldi"
 local brave = "com.brave.Browser"
 
-local defBrowser = brave
+local defBrowser = vivaldi
 
 local nixBrowser = nil
 local devBrowser = nil
